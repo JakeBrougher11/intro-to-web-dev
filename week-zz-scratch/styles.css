@@ -1,3 +1,18 @@
-p {
-  font-size: large;
+h1{
+  border: dashed red;
+}
+p{
+background-color: lime;
+
+}
+
+#bottom{
+  font-size: 24px;
+  background-color: cyan;
+}
+.border{
+  border: solid;
+}
+.red{
+  background-color: red;
 }
