@@ -25,6 +25,7 @@ img {
   border: solid red;
 }
 
+
 /* Class selector that gives elements with this class a big bold style. */
 .second{
   font-size: 34px;
