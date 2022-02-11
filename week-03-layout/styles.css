@@ -1,12 +1,40 @@
+
 nav {
   border: thin solid black;
+  text-align: center;
 }
 
 div {
   border: thin solid black;
   margin: 25px 0;
+  text-align: center;
 }
 
 footer {
   border: thin solid black;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: silver;
+}
+
+.container2 {
+  display: grid;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background: red;
+  }
+
+  .right-sidebar {
+  border: solid thin black;
+  margin-top: auto;
+  margin-bottom: auto;
 }
