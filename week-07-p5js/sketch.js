@@ -3,7 +3,7 @@ var drop = []
 
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(600,600,);
   for(var i = 0; i < 200; i++) {
     drop[i] = new Drop();
   }
@@ -11,7 +11,7 @@ function setup() {
 
 
 function draw() {
-  background(240);
+  background(51);
 
   // body
     circle(300, 250, 250, 200);
@@ -44,7 +44,7 @@ function draw() {
     this.y = random(50, -height);
 
     this.show = function() {
-      c = color(255);
+      c = color(0,255, 0);
       strokeWeight(1)
       fill(c);
       ellipse(this.x, this.y, random(1, 5), random(1, 5));
