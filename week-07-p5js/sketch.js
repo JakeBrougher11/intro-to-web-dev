@@ -7,6 +7,7 @@ function setup() {
   for(var i = 0; i < 200; i++) {
     drop[i] = new Drop();
   }
+  
 }
 
 
