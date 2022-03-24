@@ -1,3 +1,21 @@
 td {
   border: thin solid black;
+
 }
+
+body {
+  padding-left: 400px;
+  padding-right: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: black;
+  text-shadow: 1px 1px gold;
+  font-weight: bold;
+  text-align: center;
+  background-color: lightgreen
+}
+
+hr {
+  border: 1px solid black;
+  text-align: center;
