@@ -7,7 +7,7 @@ function setup() {
   for(var i = 0; i < 200; i++) {
     drop[i] = new Drop();
   }
-  
+
 }
 
 
@@ -45,7 +45,7 @@ function draw() {
     this.y = random(50, -height);
 
     this.show = function() {
-      c = color(0,255, 0);
+      c = color(220,0, 200,);
       strokeWeight(1)
       fill(c);
       ellipse(this.x, this.y, random(1, 5), random(1, 5));
