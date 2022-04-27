@@ -1,169 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>React Task List</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>David Carson</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+	<script src="sketch.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-    <script type="text/babel">
-      // Top-level Component that maintains a list of tasks for a to-do list.
-      class App extends React.Component {
-        // React uses its *state* to store data and rendering the page.
-        state = {
-          tasks: [
-            {label: 'Water plants', time: 3},
-            {label: 'Homework', time: 2},
-            {label: 'Laundry', time: 1},
-          ]
-        };
+</head>
 
-        // Removes a task at a specific index.
-        // This must be an arrow function, see this for more info:
-        // https://javascript.plainenglish.io/traditional-versus-arrow-functions-in-javascript-classes-35f958b1a492
-        removeTask = (index) => {
-          // Remove the index from the array.
-          const newTasks = this.state.tasks.filter((task, i) => {
-            return i !== index
-          });
+<body>
 
-          // Set the state to re-render the app.
-          this.setState({
-            tasks: newTasks
-          });
-        };
+	<center>
+		<div class="header">
+		<h1>Jake Brougher</h1>
+		<h3>Millersville University</h3>
+	</div>
+	</center>
 
-        // Adds a new task to the list.
-        // This must be an arrow function, see this for more info:
-        // https://javascript.plainenglish.io/traditional-versus-arrow-functions-in-javascript-classes-35f958b1a492
-        addTask = (newTask) => {
-          // Use the spread operator to create a new array with the new task.
-          const newTasks = [...this.state.tasks, newTask]
+	<center>
+		<div class="rectangle">
+		</div>
+	</center>
 
-          // Set the state to re-render the app.
-          this.setState({tasks: newTasks});
-        }
+	<div class="twocolumn">
+		<div class="left">
+			<center>
+I was born in Harrisburg, Pennsylvania on May 15, 2002.
+Some of my hobbies include collecting jerseys, watching and playing sports,
+and hanging out with my friends. My favorite sports teams are the New York Yankees, Brooklyn Nets,
+Philadelphia Eagles, and Philadelphia Flyers. I currently work at Polo Ralph Lauren as a part time job
+but plan to work full time hours in the summer.
 
-        // Renders the whole page.
-        render() {
-          return (
-            <div className="container">
-              <TaskTable tasks={this.state.tasks} removeTask={this.removeTask} />
-              <NewTaskForm addTask={this.addTask} />
-            </div>
-          )
-        }
-      }
+</center>
+		</div>
 
-      // Component that renders a list of to-do tasks as a table.
-      class TaskTable extends React.Component {
-        render() {
-          const tasks = this.props.tasks;
-          const removeTask = this.props.removeTask;
+	<div class="right">
+		<center>
+			<img src="images/IMG_5862.jpeg">
+		</center>
+	</div>
 
-          // Convert the task array into an array of <tr> elements.
-          const tableRows = [];
-          for (let i = 0; i < tasks.length; i++) {
-            tableRows.push(
-              <tr key={i}>
-                <td>{i}</td>
-                <td>{tasks[i].label}</td>
-                <td>{tasks[i].time}</td>
-                <td>
-                  <button onClick={() => {removeTask(i)}}>
-                    Remove
-                  </button>
-                </td>
-              </tr>
-            );
-          }
+	</div>
 
-          // Render the table.
-          return (
-            <table>
-              <TableHeader />
-              <tbody>
-                {tableRows}
-              </tbody>
-            </table>
-          )
-        }
-      }
+	<center>
+		<div class="rectangle">
+		</div>
+	</center>
 
-      // Renders a table header.
-      // This is an example of a "simple component", which is a function instead
-      // of a class. Simple components are handy when your component doesn't
-      // have state to keep track of.
-      function TableHeader() {
-        return (
-          <thead>
-            <tr>
-              <th>Index</th>
-              <th>Label</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-        );
-      }
+	<div class="twocolumn">
 
-      // Component that renders a form that lets users add a new task.
-      class NewTaskForm extends React.Component {
-        // Empty task for initializing the form.
-        emptyTask = {label: '', time: 0};
+		<div class="left">
+			<img src="images/IMG_6587.jpg">
+		</div>
 
-        // The form's state is a single task.
-        state = {
-          task: this.emptyTask
-        };
+		<div class="right">
+			I	rushed a fraternity this semester called Lambda Chi Alpha. The picture shows me and my classmates at initiation night. I never thought I would join a fraternity, but
+			it really got me out of my comfort zone and helped me meet new people. I can call these guys some of my best friends and it was a great experience.
 
-        render() {
-          return (
-            <div>
-              <h1>New Task</h1>
-              Label:
-              <input type="text" value={this.state.task.label}
-                     onChange={(event) => this.updateLabel(event)} />
-              <br/><br/>
-              Time:
-              <input type="number" value={this.state.task.time}
-                     onChange={(event) => this.updateTime(event)} />
-              <br/><br/>
-              <button onClick={() => {this.addTask()}}>
-                Add
-              </button>
-            </div>
-          );
-        }
+			<div id="question-one">
+				<h2>What's my favorite nba team?</h2>
+				<input id="answer-one-input" />
+				<button onclick="submitAnswerOne();">Done</button>
+			</div>
 
-        // Sets the label of the form's task.
-        updateLabel(event) {
-          const oldTask = this.state.task;
-          const newTask = {label: event.target.value, time: oldTask.time};
-          this.setState({task: newTask});
-        }
+			<div id="question-two">
+				<h2>What fraternity did I rush?</h2>
+				<input id="answer-two-input" />
+				<button onclick="submitAnswerTwo();">Done</button>
+			</div>
+</div>
+	</div>
 
-        // Sets the time of the form's task.
-        updateTime(event) {
-          const oldTask = this.state.task;
-          const newTask = {label: oldTask.label, time: event.target.value};
-          this.setState({task: newTask});
-        }
+	<center>
+		<div class="rectangle">
+		</div>
+	</center>
 
-        // Adds the form's task to the list.
-        addTask() {
-          this.props.addTask(this.state.task);
+	<div class="threecolumn">
+		<div class="leftthree">
+			<img src="images/IMG_5907.jpeg">
+		</div>
 
-          // Reset the form to show an empty task.
-          this.setState({task: this.emptyTask});
-        }
-      }
+		<div class="middle">
+			I have one older sister who is 24, and she just recently graduated from Penn State with her masters in accounting. She currently lives in the heart of NYC for her job.
+			Pictured on the right, is me and my home town friends. My friend Ryan, who is on the Pitt-Johnstown basketball team, played Millersville and we all went to watch and
+			support him.
+		</div>
 
-      ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
-  </head>
+		<div class="rightthree">
+			<img src="images/IMG_5832.JPG">
+		</div>
+	</div>
 
-  <body>
-    <div id="root"></div>
-  </body>
+	<center>
+		<div class="rectangle">
+		</div>
+	</center>
+
+
+
+</body>
 </html>
